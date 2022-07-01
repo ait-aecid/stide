@@ -1,4 +1,4 @@
-window_size = 2 # Length of subsequences
+window_size = 2 # Length of subsequences (set to 1 for only detecting new event types)
 
 seqs = set()
 min_length = 9999999999999999999
@@ -18,6 +18,8 @@ def detect_anomalies(line, seqs, min_length):
     # Returns True if anomaly is detected and False otherwise
     # Generate anomaly for sequence if any subsequence of length window_size is not present in seqs
     parts = tuple(['-1'] + line.strip('\n').strip(' ').split(' ') + ['-1'])
+    if len(parts) < min_length:
+        return True
     detected = False
     for i in range(len(parts) - window_size + 1):
         seq = parts[i:(i+window_size)]
@@ -25,7 +27,7 @@ def detect_anomalies(line, seqs, min_length):
             detected = True
             break
     # Also generate anomaly for sequence if length is smaller than minimum length from training file
-    if detected is True or len(parts) < min_length:
+    if detected is True:
         return True
     else:
         return False
