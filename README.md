@@ -22,6 +22,10 @@ ACC=0.9971308514145815
 
 The algorithm achieves an accuracy of 99.7% for a sequence length (=window-size) of 2. Feel free to edit the `stide.py` file and try out different settings for the window-size which is defined in the first line. Even a window-size of 1 yields an accuracy of 99.5% as most of the anomalous sequences can be identified by new event types and their short lengths.
 
+The following plot shows an overview of the test data (training data is exluded). The minimal sequence length known from the training data is indicated with a dashed line and shows that it is suitable to separate many samples correctly.
+
+<p align="center"><img src="https://github.com/ait-aecid/stide/blob/main/plot.png" width=100% height=100%></p>
+
 [1] [Forrest, Stephanie, et al. "A sense of self for unix processes." Proceedings 1996 IEEE Symposium on Security and Privacy. IEEE, 1996](https://ieeexplore.ieee.org/abstract/document/502675)
 
 [2] HDFS log data set taken without changes from the [DeepLog implementation by wuyifan18](https://github.com/wuyifan18/DeepLog)
